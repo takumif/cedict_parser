@@ -6,3 +6,23 @@ A small Python script for converting CC-CEDICT text file into a SQLite database.
 `python cedict_parser.py path_to_cedict_text_file path_to_db_to_create_(optional)`
 
 If no database file name is given, it defaults to `cedict.db`.
+
+## Database Format
+
+Table: **Entries**
+
+|Attribute|Type|
+|---------|----|
+|traditional|TEXT|
+|simplified|TEXT|
+|pinyin|TEXT|
+|english|TEXT|
+
+Example data:
+
+|Attribute|Value|
+|---------|----|
+|traditional|龜|
+|simplified|龟|
+|pinyin|gui1|
+|english|tortoise/turtle|
