@@ -13,6 +13,7 @@ def write(entries, dbName):
     db = sqlite3.connect(dbName)
     c = db.cursor()
 
+    c.execute("drop table if exists entries");
     c.execute("create table entries (traditional text, simplified text, pinyin text, english text)")
 
     def entryToTuple(entry):
@@ -34,7 +35,7 @@ def parse(fileName):
                 trad = split[0]
                 simp = split[1]
                 pin = line[line.index("[") + 1 : line.index("]")]
-                eng = line[line.index("/") + 1 :]
+                eng = line[line.index("/") + 1 : -3]
                 entry = Entry(trad, simp, pin, eng)
 
                 entries.append(entry)
